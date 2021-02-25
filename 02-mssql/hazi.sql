@@ -35,12 +35,12 @@ SELECT
     ,SUM(CAST(fso.[UnitPrice] as FLOAT)) [UnitPrice]
 FROM [AdWorkDM].[dbo].[DimCustomer] dc
 LEFT JOIN [AdWorkDM].[dbo].[FactSalesOrder] fso ON fso.[DimCustomerID] = dc.[DimCustomerID]
-GROUP BY CONCAT(dc.[FirstName], ' ', dc.[LastName]), DATEPART(YEAR, CAST(fso.[OrderDate] as Date)), DATEPART(MONTH, CAST(fso.[OrderDate] as Date))
+GROUP BY dc.[DimCustomerID], CONCAT(dc.[FirstName], ' ', dc.[LastName]), DATEPART(YEAR, CAST(fso.[OrderDate] as Date)), DATEPART(MONTH, CAST(fso.[OrderDate] as Date))
 
 -- vagy
 
 SELECT
-    CONCAT(dc.[FirstName], ' ', dc.[LastName]) [FullName]
+    CONCAT(MIN(dc.[FirstName]), ' ', MIN(dc.[LastName])) [FullName]
     ,CONCAT(dd.Year, '-', dd.Month) [Date]
     ,SUM(CAST(fso.[OrderQty] as INT)) [OrderQty]
     ,SUM(CAST(fso.[OrderQty] as INT) * CAST(fso.[UnitPrice] as FLOAT)) [TotalPrice]
@@ -48,7 +48,7 @@ SELECT
 FROM [AdWorkDM].[dbo].[DimCustomer] dc
 LEFT JOIN [AdWorkDM].[dbo].[FactSalesOrder] fso ON fso.[DimCustomerID] = dc.[DimCustomerID]
 LEFT JOIN [AdWorkDM].[dbo].[DimDate] dd ON dd.[DimDateID] = fso.[DimDateID]
-GROUP BY CONCAT(dc.[FirstName], ' ', dc.[LastName]), dd.Year, dd.Month
+GROUP BY dc.[DimCustomerID], dd.Year, dd.Month
 
 -- 5. Listázzuk ki, hogy melyik termékmodellből mekkora értékű rendelés érkezett be eddig.
 SELECT
