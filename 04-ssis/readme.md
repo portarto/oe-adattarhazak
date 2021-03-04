@@ -1,9 +1,9 @@
 # 4. óra
 
 ## SQL parancsok
-AdventureWorks2017Query.sql
+### AdventureWorks2017Query.sql
 ```
-### Use AdventureWorks2017
+Use AdventureWorks2017
 GO
 
 SELECT [Name]				-- be lesz importálva a céltáblába
