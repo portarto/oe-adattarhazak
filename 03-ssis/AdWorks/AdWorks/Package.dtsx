@@ -1,0 +1,458 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/3/2021 5:27:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2IIJ1FP"
+  DTS:CreatorName="DESKTOP-2IIJ1FP\cruci"
+  DTS:DTSID="{268AA2B4-6BCF-4EB4-AB6E-64540B0E9CD1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{A8809BA7-D600-4724-BB68-CFD1A80F3B1D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[backup]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{23397A4A-4C38-4151-8869-A5DFDFF54AAC}"
+      DTS:ObjectName="backup">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Integrated Security=SSPI;Connect Timeout=30;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorks2017]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FD398CB8-BB4A-4D2E-BB7E-916301F525D9}"
+      DTS:ObjectName="LocalHost.AdventureWorks2017">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2017;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2ADFF0B-AB79-4EB4-AB8C-6ED6FF2EEA51}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Base">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7439223-F619-4EA8-BA88-C519856DC65C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DAY(GETDATE())"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DayOfTheMonth">
+      <DTS:VariableValue
+        DTS:DataType="3">3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{27A2CD6B-931C-4E21-AE46-655FC719C585}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Power">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8ECCE696-7AFE-4351-8F8A-8FEA4CABE8C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3CB5E27-0184-4067-8918-E8D55B1DEE05}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Admin Level Tasks"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4073591A-5654-43B5-84FA-6D476A1D5FF4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Admin Level Tasks">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Admin Level Tasks\Back Up Database Task"
+          DTS:CreationName="Microsoft.DbMaintenanceBackupTask"
+          DTS:Description="Back Up Database Task"
+          DTS:DTSID="{A514B6F3-1B51-4ABD-91E6-583B11552F76}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceBackupTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Back Up Database Task"
+          DTS:TaskContact="Back Up Database Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{23397A4A-4C38-4151-8869-A5DFDFF54AAC}"
+              SQLTask:DatabaseSelectionType="1"
+              SQLTask:ServerVersion="15"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False"
+              SQLTask:BackupAction="0"
+              SQLTask:BackupIsIncremental="False"
+              SQLTask:BackupFileGroupsFiles=""
+              SQLTask:BackupDeviceType="2"
+              SQLTask:BackupPhysicalDestinationType="2"
+              SQLTask:BackupDestinationType="0"
+              SQLTask:BackupDestinationAutoFolderPath="C:\DB"
+              SQLTask:BackupActionForExistingBackups="0"
+              SQLTask:BackupCreateSubFolder="False"
+              SQLTask:BackupFileExtension=""
+              SQLTask:BackupVerifyIntegrity="False"
+              SQLTask:ExpireDate="2021-03-17T00:00:00"
+              SQLTask:RetainDays="14"
+              SQLTask:InDays="True"
+              SQLTask:UseExpiration="False"
+              SQLTask:BackupCompressionAction="0"
+              SQLTask:CopyOnlyBackup="False"
+              SQLTask:IgnoreReplicaType="False"
+              SQLTask:CredentialName=""
+              SQLTask:ContainerName=""
+              SQLTask:UrlPrefix=""
+              SQLTask:IsBackupEncrypted="False"
+              SQLTask:BackupEncryptionAlgorithm="0"
+              SQLTask:BackupEncryptorType="0"
+              SQLTask:BackupEncryptorName=""
+              SQLTask:Checksum="False"
+              SQLTask:ContinueOnError="False"
+              SQLTask:IsBlockSizeUsed="False"
+              SQLTask:IsMaxTransferSizeUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="master" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="model" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="msdb" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="AdventureWorks2017" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="AdWorkDM" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="WideWorldImporters" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Admin Level Tasks\Check Database Integrity Task"
+          DTS:CreationName="Microsoft.DbMaintenanceCheckIntegrityTask"
+          DTS:Description="Check Database Integrity Task"
+          DTS:DTSID="{23B77CCD-88D7-40CF-AE9F-3E19A2188704}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceCheckIntegrityTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Check Database Integrity Task"
+          DTS:TaskContact="Check Database Integrity Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{23397A4A-4C38-4151-8869-A5DFDFF54AAC}"
+              SQLTask:DatabaseSelectionType="1"
+              SQLTask:ServerVersion="15"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False"
+              SQLTask:IncludeIndexes="True"
+              SQLTask:PhysicalOnly="False"
+              SQLTask:Tablock="False"
+              SQLTask:MaximumDegreeOfParallelismUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="master" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="model" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="msdb" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="AdventureWorks2017" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="AdWorkDM" />
+              <SQLTask:SelectedDatabases
+                SQLTask:DatabaseName="WideWorldImporters" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Admin Level Tasks\Test"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AC18052F-39BB-4F94-8251-FF34712805FB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Test"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Admin Level Tasks.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C0734937-3033-4BAC-A8CC-EC24BCA3509A}"
+          DTS:EvalOp="3"
+          DTS:Expression="DAY(GETDATE()) == 1"
+          DTS:From="Package\Admin Level Tasks\Check Database Integrity Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Admin Level Tasks\Back Up Database Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Admin Level Tasks.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9547BCE0-D00A-4195-84D9-CAC09E884CF8}"
+          DTS:From="Package\Admin Level Tasks\Test"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Admin Level Tasks\Back Up Database Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Generate Space Utilization Report"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{3EFAA2B1-0670-4E39-B8A5-E9AE5D88367B}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generate Space Utilization Report">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachSMOEnumerator"
+        DTS:DTSID="{EEDEB129-A1BD-4129-B2DB-E123A3724AA1}"
+        DTS:ObjectName="{EEDEB129-A1BD-4129-B2DB-E123A3724AA1}">
+        <DTS:ObjectData>
+          <FEESMO
+            EnumURN="RuntimeServer[@Connection='{23397A4A-4C38-4151-8869-A5DFDFF54AAC}']/Server[@Name='.']/Database[@Name='AdventureWorks2017']/SMOEnumObj[@Name='Tables']/SMOEnumType[@Name='Names']" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Generate Space Utilization Report\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{29D0A650-3E39-43A3-A91D-34003619DE4B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FD398CB8-BB4A-4D2E-BB7E-916301F525D9}"
+              SQLTask:SqlStatementSource="DECLARE @fullname VARCHAR(200) = (SELECT '[' + SCHEMA_NAME(SCHEMA_ID) + '].[' + NAME + ']' FROM sys.tables WHERE name = ?);&#xA;&#xA;INSERT SpaceUsed EXEC sp_spaceused @fullname;&#xA;&#xA;SELECT COUNT(*) AS TotalRowCount FROM SpaceUsed;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="TotalRowCount"
+                SQLTask:DtsVariableName="User::TotalRowCount" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="200" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{35C4665C-8902-4DCD-A389-1BB04B8C901C}"
+          DTS:ObjectName="{35C4665C-8902-4DCD-A389-1BB04B8C901C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::TableName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Power of two"
+      DTS:AssignExpression="@Power = @Power + 1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{50A63BFC-F0D1-4BA9-8008-453CA89D7AB2}"
+      DTS:EvalExpression="@Power &lt;= 10"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@Power = 1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="Power of two">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Power of two\Expression Task"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{35BCDE2D-8066-493A-9B49-EB488456ECC1}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Expression Task"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::Base] =  @[User::Base] * 2" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Admin Level Tasks\Back Up Database Task"
+          TopLeft="48,180" />
+        <EdgeLayout
+          Id="Package\Admin Level Tasks.PrecedenceConstraints[Constraint]"
+          TopLeft="139.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.5,123"
+              Start="0,0"
+              End="38.5,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.2054380664652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.2054380664652"
+                    Point2="0,73.2054380664652"
+                    Point3="4,73.2054380664652" />
+                  <mssgle:LineSegment
+                    End="34.5,73.2054380664652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.5,73.2054380664652"
+                    Point2="38.5,73.2054380664652"
+                    Point3="38.5,77.2054380664652" />
+                  <mssgle:LineSegment
+                    End="38.5,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.25,78.2054380664652,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Admin Level Tasks\Check Database Integrity Task"
+          TopLeft="25,15" />
+        <NodeLayout
+          Size="100,42"
+          Id="Package\Admin Level Tasks\Test"
+          TopLeft="18,81" />
+        <EdgeLayout
+          Id="Package\Admin Level Tasks.PrecedenceConstraints[Constraint 1]"
+          TopLeft="68,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,57"
+              Start="0,0"
+              End="47,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9244712990937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.9244712990937"
+                    Point2="0,33.9244712990937"
+                    Point3="4,33.9244712990937" />
+                  <mssgle:LineSegment
+                    End="43,33.9244712990937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,33.9244712990937"
+                    Point2="47,33.9244712990937"
+                    Point3="47,37.9244712990937" />
+                  <mssgle:LineSegment
+                    End="47,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="277,276"
+          Size="277,319"
+          Id="Package\Admin Level Tasks"
+          TopLeft="665,10" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Power of two\Expression Task"
+          TopLeft="72,59" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,156"
+          Size="348,199"
+          Id="Package\Power of two"
+          TopLeft="100,30" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Generate Space Utilization Report\Execute SQL Task"
+          TopLeft="69,45" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,184"
+          Size="348,227"
+          Id="Package\Generate Space Utilization Report"
+          TopLeft="157,285" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

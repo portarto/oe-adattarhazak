@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="backup"
+  DTS:DTSID="{F71F243D-17A2-4D8E-B32B-28D14C57B057}"
+  DTS:CreationName="ADO.NET:SQL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=.;Integrated Security=SSPI;Connect Timeout=30;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
