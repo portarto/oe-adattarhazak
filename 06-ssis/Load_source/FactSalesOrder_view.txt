@@ -1,0 +1,15 @@
+CREATE OR ALTER VIEW dbo.FactSalesOrderVW AS
+SELECT 
+	ROW_NUMBER() OVER(ORDER BY SH.SalesOrderNumber) AS ID,
+	SD.OrderQty,
+	SD.UnitPrice,
+	SH.ShipDate, 
+	SH.OnlineOrderFlag,
+	P.BusinessKey			AS CustomerBusinessKey,
+	Pr.ProductID			AS ProductsBusinessKey,
+	SH.DueDate				AS DateBusinessKey
+FROM [DW].[dbo].[DW_SalesOrderDetail] SD INNER JOIN 
+[DW].[dbo].[DW_SalesOrderHeader] SH 
+ON SH.SalesOrderNumber = SD.SalesOrderID INNER JOIN 
+[DW].[dbo].[DW_Person] P ON P.BusinessKey = SH.CustomerID 
+INNER JOIN [DW].[dbo].[DW_Products] Pr ON Pr.ProductID = SD.ProductID;

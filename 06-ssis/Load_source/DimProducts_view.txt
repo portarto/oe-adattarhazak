@@ -1,0 +1,18 @@
+CREATE OR ALTER VIEW dbo.DimProductsVW AS 
+SELECT
+	Pr.ProductID	AS [BusinessKey],
+	Pr.Name		AS [Name],
+	Pr.ProductNumber	AS [ProductNumber],
+	Pr.Color		AS [Color],
+	Pr.ListPrice	AS [ListPrice],
+	Pr.SellEndDate	AS [SellStartDate],
+	Pr.SellEndDate	AS [SellEndDate],
+	Pm.Name		AS [ProductModel],
+	PrC.Name		AS [ProductCategory],
+	PrS.Name		AS [ProductSubcategory]
+FROM [DW_Products] Pr INNER JOIN [DW_ProductModel] Pm 
+ON Pm.ProductModelID = Pr.ProductModelID 
+INNER JOIN [DW_ProductSubcategory] PrS 
+ON Pr.ProductSubcategoryID = PrS.ProductSubcategoryID 
+INNER JOIN [DW_ProductCategory] PrC ON PrS.ProductCategoryID = PrC.ProductCategoryID 
+WHERE Pr.ValidTo IS NULL;

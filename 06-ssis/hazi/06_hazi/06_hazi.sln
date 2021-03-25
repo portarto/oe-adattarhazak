@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "06_hazi", "06_hazi\06_hazi.dtproj", "{DE641A76-F933-45C1-84C3-3BC796023D7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE641A76-F933-45C1-84C3-3BC796023D7D}.Development|Default.ActiveCfg = Development
+		{DE641A76-F933-45C1-84C3-3BC796023D7D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {427E5EA3-4256-495A-8BC7-3229CE6E2294}
+	EndGlobalSection
+EndGlobal

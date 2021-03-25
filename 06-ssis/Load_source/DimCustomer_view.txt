@@ -1,0 +1,9 @@
+CREATE OR ALTER VIEW dbo.DimCustomerVW AS 
+SELECT
+	BusinessKey,
+	PersonType,
+	Title,
+	FirstName,
+	LastName,
+	EmailPromotion
+FROM [DW_Person];

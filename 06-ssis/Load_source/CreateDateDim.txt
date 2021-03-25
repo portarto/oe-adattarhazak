@@ -1,0 +1,9 @@
+CREATE TABLE DM.dbo.DimDate (
+	DimDateID INT,
+	Date DATE,
+	Day INT,
+	MONTH INT,
+	QUARTER INT,
+	YEAR INT,
+	LoadTimeStamp TIMESTAMP
+);
